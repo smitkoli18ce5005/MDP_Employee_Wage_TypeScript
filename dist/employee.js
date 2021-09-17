@@ -28,6 +28,21 @@ function checkAttendance(attendace) {
 }
 function returnFullTimeWage() { return FULL_TIME_WAGE * WAGE_PER_HOUR; }
 function returnPartTimeWage() { return PART_TIME_WAGE * WAGE_PER_HOUR; }
+function calculateWage(attendace) {
+    switch (attendace) {
+        case 0:
+            return (returnPartTimeWage());
+            break;
+        case 1:
+            return (returnFullTimeWage());
+            break;
+        case 2:
+            return 0;
+            break;
+        default:
+            return 0;
+    }
+}
 {
     //  uc1 -   Print welcome message & Check employee attendance
     console.log(printUC("uc1"));
@@ -39,4 +54,7 @@ function returnPartTimeWage() { return PART_TIME_WAGE * WAGE_PER_HOUR; }
     //  uc3 -   Calculate part time wage
     console.log(printUC("uc3"));
     console.log("Part time wage: " + returnPartTimeWage());
+    //  uc4 -   Calculating employee wage using switch
+    console.log(printUC("uc4"));
+    console.log("Employee wage: " + calculateWage(attendanceGenerator()));
 }
