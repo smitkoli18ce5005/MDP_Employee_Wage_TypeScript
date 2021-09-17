@@ -1,6 +1,7 @@
 const PART_TIME_WAGE: number = 4
 const FULL_TIME_WAGE: number = 8
 const WAGE_PER_HOUR: number = 20
+const DAYS_IN_MONTH: number = 20
 
 function printUC(uc: string): string {
     return `------------------------${uc}------------------------`;
@@ -50,6 +51,17 @@ function printUC(uc: string): string {
     }
   }
 
+  function calculateMonthlyWage(): number {
+    let current_day: number = 0
+    let employee_monthly_wage: number = 0
+    while(current_day < DAYS_IN_MONTH){
+        employee_monthly_wage += calculateWage(attendanceGenerator())
+        current_day += 1
+    }
+    return employee_monthly_wage
+  }
+
+
   {
     //  uc1 -   Print welcome message & Check employee attendance
     console.log(printUC("uc1"))
@@ -67,5 +79,9 @@ function printUC(uc: string): string {
     //  uc4 -   Calculating employee wage using switch
     console.log(printUC("uc4"))
     console.log("Employee wage: " +calculateWage(attendanceGenerator()))
+
+    //  uc5 -   Calculate monthly wage
+    console.log(printUC("uc5"))
+    console.log("Employee monthly wage: " +calculateMonthlyWage())
   }
   
