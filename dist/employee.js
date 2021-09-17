@@ -1,4 +1,5 @@
 "use strict";
+const PART_TIME_WAGE = 4;
 const FULL_TIME_WAGE = 8;
 const WAGE_PER_HOUR = 20;
 function printUC(uc) {
@@ -26,6 +27,7 @@ function checkAttendance(attendace) {
     }
 }
 function returnFullTimeWage() { return FULL_TIME_WAGE * WAGE_PER_HOUR; }
+function returnPartTimeWage() { return PART_TIME_WAGE * WAGE_PER_HOUR; }
 {
     //  uc1 -   Print welcome message & Check employee attendance
     console.log(printUC("uc1"));
@@ -34,4 +36,7 @@ function returnFullTimeWage() { return FULL_TIME_WAGE * WAGE_PER_HOUR; }
     //  uc2 -   Calculate full time wage
     console.log(printUC("uc2"));
     console.log("Full time wage: " + returnFullTimeWage());
+    //  uc3 -   Calculate part time wage
+    console.log(printUC("uc3"));
+    console.log("Part time wage: " + returnPartTimeWage());
 }

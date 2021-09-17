@@ -1,3 +1,4 @@
+const PART_TIME_WAGE: number = 4
 const FULL_TIME_WAGE: number = 8
 const WAGE_PER_HOUR: number = 20
 
@@ -31,6 +32,8 @@ function printUC(uc: string): string {
   
   function returnFullTimeWage(): number {return FULL_TIME_WAGE*WAGE_PER_HOUR}
 
+  function returnPartTimeWage(): number {return PART_TIME_WAGE*WAGE_PER_HOUR}
+
   {
     //  uc1 -   Print welcome message & Check employee attendance
     console.log(printUC("uc1"))
@@ -40,5 +43,9 @@ function printUC(uc: string): string {
     //  uc2 -   Calculate full time wage
     console.log(printUC("uc2"))
     console.log("Full time wage: " +returnFullTimeWage())
+
+    //  uc3 -   Calculate part time wage
+    console.log(printUC("uc3"))
+    console.log("Part time wage: " +returnPartTimeWage())
   }
   
