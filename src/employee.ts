@@ -119,6 +119,8 @@ interface EmployeeInterface {
   returnPartTimeWage(): number;
   calculateWage(attendace: number): number;
   calculateMonthlyWage(restricted?: number): number;
+  returnWageArray(): number[];
+  wageUsingForLoop(): number;
 }
 
 class Employee implements EmployeeInterface {
@@ -199,6 +201,25 @@ class Employee implements EmployeeInterface {
     }
     return employee_monthly_wage;
   }
+
+  returnWageArray(): number[] {
+    let wage_array: number[] = [];
+    let i: number;
+    for (i = 0; i < this.DAYS_IN_MONTH; i++) {
+      wage_array.push(this.calculateWage(this.attendanceGenerator()));
+    }
+    return wage_array;
+  }
+
+  wageUsingForLoop(): number {
+    let wage_array: number[] = this.returnWageArray();
+    let total_wage: number = 0;
+    let i: number;
+    for (i = 0; i < wage_array.length; i++) {
+      total_wage += wage_array[i];
+    }
+    return total_wage;
+  }
 }
 
 {
@@ -206,4 +227,10 @@ class Employee implements EmployeeInterface {
   let employee_object = new Employee();
   console.log(employee_object.printUC("uc7"));
   console.log("Employee class created");
+
+  //  uc8 -   Calculate total wage using array
+  console.log(employee_object.printUC("uc8"));
+  console.log(
+    "Employee wage using array: " + employee_object.wageUsingForLoop()
+  );
 }

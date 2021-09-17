@@ -157,10 +157,30 @@ class Employee {
         }
         return employee_monthly_wage;
     }
+    returnWageArray() {
+        let wage_array = [];
+        let i;
+        for (i = 0; i < this.DAYS_IN_MONTH; i++) {
+            wage_array.push(this.calculateWage(this.attendanceGenerator()));
+        }
+        return wage_array;
+    }
+    wageUsingForLoop() {
+        let wage_array = this.returnWageArray();
+        let total_wage = 0;
+        let i;
+        for (i = 0; i < wage_array.length; i++) {
+            total_wage += wage_array[i];
+        }
+        return total_wage;
+    }
 }
 {
     //  uc7 -   Create employee class
     let employee_object = new Employee();
     console.log(employee_object.printUC("uc7"));
     console.log("Employee class created");
+    //  uc8 -   Calculate total wage using array
+    console.log(employee_object.printUC("uc8"));
+    console.log("Employee wage using array: " + employee_object.wageUsingForLoop());
 }

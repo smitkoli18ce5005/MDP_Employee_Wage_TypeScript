@@ -10,3 +10,4 @@ UC          | Task
 5           | Calculate monthly wage
 6           | Calculate monthly wage for restricted hours
 7           | Create employee class
+8           | Calculate total wage using array
