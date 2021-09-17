@@ -8,3 +8,4 @@ UC          | Task
 3           | Calculate part time wage
 4           | Calculating employee wage using switch
 5           | Calculate monthly wage
+6           | Calculate monthly wage for restricted hours

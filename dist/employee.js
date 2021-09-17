@@ -44,11 +44,19 @@ function calculateWage(attendace) {
             return 0;
     }
 }
-function calculateMonthlyWage() {
+function calculateMonthlyWage(restricted) {
     let current_day = 0;
+    let current_employee_wage = 0;
     let employee_monthly_wage = 0;
-    while (current_day < DAYS_IN_MONTH) {
-        employee_monthly_wage += calculateWage(attendanceGenerator());
+    let total_hours = 0;
+    restricted = restricted == null ? Number.MAX_VALUE : restricted;
+    while (total_hours <= restricted && current_day < DAYS_IN_MONTH) {
+        current_employee_wage = calculateWage(attendanceGenerator());
+        total_hours += current_employee_wage / WAGE_PER_HOUR;
+        if (total_hours > restricted) {
+            break;
+        }
+        employee_monthly_wage += current_employee_wage;
         current_day += 1;
     }
     return employee_monthly_wage;
@@ -70,4 +78,7 @@ function calculateMonthlyWage() {
     //  uc5 -   Calculate monthly wage
     console.log(printUC("uc5"));
     console.log("Employee monthly wage: " + calculateMonthlyWage());
+    //  uc6 -   Calculate monthly wage for restricted hours
+    console.log(printUC("uc6"));
+    console.log("Employee monthly wage: " + calculateMonthlyWage(20));
 }
