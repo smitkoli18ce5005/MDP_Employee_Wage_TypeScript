@@ -9,3 +9,4 @@ UC          | Task
 4           | Calculating employee wage using switch
 5           | Calculate monthly wage
 6           | Calculate monthly wage for restricted hours
+7           | Create employee class
