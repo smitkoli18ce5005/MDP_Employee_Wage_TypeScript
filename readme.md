@@ -3,4 +3,4 @@
 ## Use cases ##
 UC          | Task
 ------------|--------------
-0           | Initial commit
+1           | Print welcome message & Check employee attendance
