@@ -1,4 +1,6 @@
 "use strict";
+const FULL_TIME_WAGE = 8;
+const WAGE_PER_HOUR = 20;
 function printUC(uc) {
     return `------------------------${uc}------------------------`;
 }
@@ -23,9 +25,13 @@ function checkAttendance(attendace) {
             return "In default case";
     }
 }
+function returnFullTimeWage() { return FULL_TIME_WAGE * WAGE_PER_HOUR; }
 {
-    //  uc1 - Print welcome message & Check employee attendance
+    //  uc1 -   Print welcome message & Check employee attendance
     console.log(printUC("uc1"));
     console.log(greet());
     console.log("Checking attendance: " + checkAttendance(attendanceGenerator()));
+    //  uc2 -   Calculate full time wage
+    console.log(printUC("uc2"));
+    console.log("Full time wage: " + returnFullTimeWage());
 }
