@@ -400,26 +400,40 @@ class EmployeePayroll extends Employee {
   private readonly emp_gender: string = "";
   private readonly emp_date: string = "";
 
-  constructor(name: string, id: number, gender: string, date: string) {
+  constructor(name: string, id: number, gender?: string, date?: string) {
     super();
     this.emp_name = name;
     this.emp_id = id;
-    this.emp_gender = gender;
-    this.emp_date = date;
+    this.emp_gender = gender != null ? gender : "";
+    this.emp_date = date != null ? date : "";
   }
 
   displayPayrollData(): void {
     console.log("------Employee Payroll Data------");
     console.log("Name\t\t:\t" + this.emp_name);
     console.log("Employee-ID\t:\t" + this.emp_id);
-    console.log("Gender\t\t:\t" + this.emp_gender);
-    console.log("Date\t\t:\t" + this.emp_date);
+    if (this.emp_gender != "") {
+      console.log("Gender\t\t:\t" + this.emp_gender);
+    }
+    if (this.emp_date != "") {
+      console.log("Date\t\t:\t" + this.emp_date);
+    }
     console.log("Salary\t\t:\t" + this.wageUsingForEach());
   }
 }
 {
   //  uc12  - Ability to create Employee Payroll Data with id, name and salary
-  let payrollObject = new EmployeePayroll("Smit", 445545, "Male", "02/08/2212");
-  console.log(payrollObject.printUC("uc12"));
-  payrollObject.displayPayrollData();
+  let payroll_object = new EmployeePayroll("Smit", 445545);
+  console.log(payroll_object.printUC("uc12"));
+  payroll_object.displayPayrollData();
+
+  //  uc13  - Ability to extend Employee Payroll Data to store gender and start date
+  let payroll_extended_object = new EmployeePayroll(
+    "Smit",
+    445545,
+    "Male",
+    "02/01/2000"
+  );
+  console.log(payroll_extended_object.printUC("uc13"));
+  payroll_extended_object.displayPayrollData();
 }

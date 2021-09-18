@@ -21,3 +21,4 @@ UC          | Task
 10          | Store the Day and the Daily Wage along with the Total wage using map
 11          | Store the Day, Hours Worked on single day and wage earned in object
 12          | Ability to create Employee Payroll Data with id, name and salary
+13          | Ability to extend Employee Payroll Data to store gender and start date
