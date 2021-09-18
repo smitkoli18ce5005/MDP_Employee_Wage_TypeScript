@@ -22,3 +22,4 @@ UC          | Task
 11          | Store the Day, Hours Worked on single day and wage earned in object
 12          | Ability to create Employee Payroll Data with id, name and salary
 13          | Ability to extend Employee Payroll Data to store gender and start date
+14          | Validate email, number and name starting with capital letter

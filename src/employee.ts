@@ -420,6 +420,23 @@ class EmployeePayroll extends Employee {
     }
     console.log("Salary\t\t:\t" + this.wageUsingForEach());
   }
+
+  emailValidator(email: string): void {
+    let regex = /([a-zA-Z0-9_.]+)(@)([a-z]+)(\.)([a-z]{2,3})(\.)?([a-z]{2,3})?/;
+    if (regex.test(email)) {
+      console.log("Email is Valid");
+    } else {
+      throw "Email is invalid";
+    }
+  }
+
+  validateEmail(email: string): void {
+    try {
+      this.emailValidator(email);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 {
   //  uc12  - Ability to create Employee Payroll Data with id, name and salary
@@ -436,4 +453,8 @@ class EmployeePayroll extends Employee {
   );
   console.log(payroll_extended_object.printUC("uc13"));
   payroll_extended_object.displayPayrollData();
+
+  //  uc14  - Validate email, number and name starting with capital letter
+  console.log(payroll_extended_object.printUC("uc14"));
+  payroll_extended_object.validateEmail("smit@gmail.com");
 }
