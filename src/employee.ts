@@ -127,6 +127,7 @@ interface EmployeeInterface {
   displayFirstFullTimePay(): void;
   checkFullTimeWage(): void;
   checkPartTimeWage(): void;
+  totalDays(): void;
 }
 
 class Employee implements EmployeeInterface {
@@ -300,6 +301,14 @@ class Employee implements EmployeeInterface {
       console.log("No Part Time Wage");
     }
   }
+
+  totalDays(): void {
+    let days_worked = 0;
+    this.employee_wage_array.forEach((wages) => {
+      days_worked += wages == 160 ? 1 : wages == 80 ? 0.5 : 0;
+    });
+    console.log("Total number of days worked = " + days_worked);
+  }
 }
 
 {
@@ -339,4 +348,8 @@ class Employee implements EmployeeInterface {
   //  uc9 - Task_6  Check if there is any Part Time Wage
   console.log(employee_object.printUC("uc9 - Task_6"));
   employee_object.checkPartTimeWage();
+
+  //  uc9 - Task_7  Find the number of days the Employee Worked
+  console.log(employee_object.printUC("uc9 - Task_6"));
+  employee_object.totalDays();
 }
