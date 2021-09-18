@@ -122,6 +122,7 @@ interface EmployeeInterface {
   returnWageArray(): number[];
   wageUsingForLoop(): number;
   wageUsingForEach(): number;
+  displayDailyWage(): void;
 }
 
 class Employee implements EmployeeInterface {
@@ -230,6 +231,15 @@ class Employee implements EmployeeInterface {
     });
     return total_wage;
   }
+
+  displayDailyWage(): void {
+    let wage_array: number[] = this.returnWageArray();
+    console.log("Day \t|\t Wage");
+    console.log("----------------------");
+    wage_array.map((wages: number, index: number) =>
+      console.log(index + 1 + " \t|\t " + wages)
+    );
+  }
 }
 
 {
@@ -249,4 +259,8 @@ class Employee implements EmployeeInterface {
   console.log(
     "Employee wage using forEach: " + employee_object.wageUsingForEach()
   );
+
+  //  uc9 - Task_2  Show the Day along with Daily Wage using Array map helper function
+  console.log(employee_object.printUC("uc9 - Task_2"));
+  employee_object.displayDailyWage();
 }

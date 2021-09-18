@@ -182,6 +182,12 @@ class Employee {
         });
         return total_wage;
     }
+    displayDailyWage() {
+        let wage_array = this.returnWageArray();
+        console.log("Day \t|\t Wage");
+        console.log("----------------------");
+        wage_array.map((wages, index) => console.log(index + 1 + " \t|\t " + wages));
+    }
 }
 {
     //  uc7 -   Create employee class
@@ -194,4 +200,7 @@ class Employee {
     //  uc9 - Task_1  Calculate total Wage using array forEach
     console.log(employee_object.printUC("uc9 - Task_1"));
     console.log("Employee wage using forEach: " + employee_object.wageUsingForEach());
+    //  uc9 - Task_2  Show the Day along with Daily Wage using Array map helper function
+    console.log(employee_object.printUC("uc9 - Task_2"));
+    employee_object.displayDailyWage();
 }
