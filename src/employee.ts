@@ -121,6 +121,7 @@ interface EmployeeInterface {
   calculateMonthlyWage(restricted?: number): number;
   returnWageArray(): number[];
   wageUsingForLoop(): number;
+  wageUsingForEach(): number;
 }
 
 class Employee implements EmployeeInterface {
@@ -220,6 +221,15 @@ class Employee implements EmployeeInterface {
     }
     return total_wage;
   }
+
+  wageUsingForEach(): number {
+    let wage_array: number[] = this.returnWageArray();
+    let total_wage: number = 0;
+    wage_array.forEach((wages) => {
+      total_wage += wages;
+    });
+    return total_wage;
+  }
 }
 
 {
@@ -232,5 +242,11 @@ class Employee implements EmployeeInterface {
   console.log(employee_object.printUC("uc8"));
   console.log(
     "Employee wage using array: " + employee_object.wageUsingForLoop()
+  );
+
+  //  uc9 - Task_1  Calculate total Wage using array forEach
+  console.log(employee_object.printUC("uc9 - Task_1"));
+  console.log(
+    "Employee wage using forEach: " + employee_object.wageUsingForEach()
   );
 }

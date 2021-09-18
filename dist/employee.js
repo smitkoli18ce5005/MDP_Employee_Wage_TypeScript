@@ -174,6 +174,14 @@ class Employee {
         }
         return total_wage;
     }
+    wageUsingForEach() {
+        let wage_array = this.returnWageArray();
+        let total_wage = 0;
+        wage_array.forEach((wages) => {
+            total_wage += wages;
+        });
+        return total_wage;
+    }
 }
 {
     //  uc7 -   Create employee class
@@ -183,4 +191,7 @@ class Employee {
     //  uc8 -   Calculate total wage using array
     console.log(employee_object.printUC("uc8"));
     console.log("Employee wage using array: " + employee_object.wageUsingForLoop());
+    //  uc9 - Task_1  Calculate total Wage using array forEach
+    console.log(employee_object.printUC("uc9 - Task_1"));
+    console.log("Employee wage using forEach: " + employee_object.wageUsingForEach());
 }
