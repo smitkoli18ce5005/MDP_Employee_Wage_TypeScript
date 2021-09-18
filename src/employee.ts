@@ -439,6 +439,15 @@ class EmployeePayroll extends Employee {
     }
   }
 
+  nameValidator(name: string): void {
+    let regex = /^([A-Z])([a-z]+)( )([A-Z])([a-z]+)( )?([A-Z])?([a-z]+)?/;
+    if (regex.test(name)) {
+      console.log("Name is Valid");
+    } else {
+      throw "Name is invalid";
+    }
+  }
+
   validateEmail(email: string): void {
     try {
       this.emailValidator(email);
@@ -450,6 +459,14 @@ class EmployeePayroll extends Employee {
   validatePhone(phone: string): void {
     try {
       this.phoneValidator(phone);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  validateName(name: string): void {
+    try {
+      this.nameValidator(name);
     } catch (err) {
       console.log(err);
     }
@@ -474,5 +491,6 @@ class EmployeePayroll extends Employee {
   //  uc14  - Validate email, number and name starting with capital letter
   console.log(payroll_extended_object.printUC("uc14"));
   payroll_extended_object.validateEmail("smit@gmail.com");
-  payroll_extended_object.phoneValidator("91-9999999999");
+  payroll_extended_object.validatePhone("91-9999999999");
+  payroll_extended_object.validateName("Smit Koli");
 }
