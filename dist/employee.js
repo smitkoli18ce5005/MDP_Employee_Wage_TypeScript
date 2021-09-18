@@ -350,6 +350,16 @@ class EmployeePayroll extends Employee {
             throw "Name is invalid";
         }
     }
+    genderValidator(gender) {
+        let male_regex = /^([mM])(ale)/;
+        let female_regex = /^([fF])(emale)/;
+        if (male_regex.test(gender) || female_regex.test(gender)) {
+            console.log("Gender is Valid");
+        }
+        else {
+            throw "Gender is invalid";
+        }
+    }
     validateEmail(email) {
         try {
             this.emailValidator(email);
@@ -374,6 +384,14 @@ class EmployeePayroll extends Employee {
             console.log(err);
         }
     }
+    validateGender(gender) {
+        try {
+            this.genderValidator(gender);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
 }
 {
     //  uc12  - Ability to create Employee Payroll Data with id, name and salary
@@ -389,4 +407,5 @@ class EmployeePayroll extends Employee {
     payroll_extended_object.validateEmail("smit@gmail.com");
     payroll_extended_object.validatePhone("91-9999999999");
     payroll_extended_object.validateName("Smit Koli");
+    payroll_extended_object.validateGender("Male");
 }

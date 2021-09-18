@@ -448,6 +448,16 @@ class EmployeePayroll extends Employee {
     }
   }
 
+  genderValidator(gender: string): void {
+    let male_regex = /^([mM])(ale)/;
+    let female_regex = /^([fF])(emale)/;
+    if (male_regex.test(gender) || female_regex.test(gender)) {
+      console.log("Gender is Valid");
+    } else {
+      throw "Gender is invalid";
+    }
+  }
+
   validateEmail(email: string): void {
     try {
       this.emailValidator(email);
@@ -467,6 +477,14 @@ class EmployeePayroll extends Employee {
   validateName(name: string): void {
     try {
       this.nameValidator(name);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  validateGender(gender: string): void {
+    try {
+      this.genderValidator(gender);
     } catch (err) {
       console.log(err);
     }
@@ -493,4 +511,5 @@ class EmployeePayroll extends Employee {
   payroll_extended_object.validateEmail("smit@gmail.com");
   payroll_extended_object.validatePhone("91-9999999999");
   payroll_extended_object.validateName("Smit Koli");
+  payroll_extended_object.validateGender("Male");
 }
