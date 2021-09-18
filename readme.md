@@ -18,3 +18,4 @@ UC          | Task
 9 - Task_5  | Check if Every Element of Full Time Wage is truly holding Full time wage
 9 - Task_6  | Check if there is any Part Time Wage
 9 - Task_7  | Find the number of days the Employee Worked
+10          | Store the Day and the Daily Wage along with the Total wage using map

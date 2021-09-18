@@ -128,6 +128,7 @@ interface EmployeeInterface {
   checkFullTimeWage(): void;
   checkPartTimeWage(): void;
   totalDays(): void;
+  storeInMap(): void;
 }
 
 class Employee implements EmployeeInterface {
@@ -137,7 +138,7 @@ class Employee implements EmployeeInterface {
   readonly DAYS_IN_MONTH = 20;
 
   private employee_wage_array: number[] = [];
-
+  private employee_wage_map = new Map();
   constructor() {
     this.returnWageArray();
   }
@@ -309,6 +310,16 @@ class Employee implements EmployeeInterface {
     });
     console.log("Total number of days worked = " + days_worked);
   }
+
+  storeInMap(): void {
+    let total_wage: number = 0;
+    this.employee_wage_array.forEach((wages: number, index: number) => {
+      total_wage += wages;
+      this.employee_wage_map.set("Day: " + ++index, [wages, total_wage]);
+    });
+    console.log("Employee wage map");
+    console.log(this.employee_wage_map);
+  }
 }
 
 {
@@ -352,4 +363,8 @@ class Employee implements EmployeeInterface {
   //  uc9 - Task_7  Find the number of days the Employee Worked
   console.log(employee_object.printUC("uc9 - Task_6"));
   employee_object.totalDays();
+
+  //  uc10 - Store the Day and the Daily Wage along with the Total wage using map
+  console.log(employee_object.printUC("uc10"));
+  employee_object.storeInMap();
 }

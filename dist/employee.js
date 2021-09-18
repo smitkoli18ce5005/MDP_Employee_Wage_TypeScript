@@ -95,6 +95,7 @@ class Employee {
         this.WAGE_PER_HOUR = 20;
         this.DAYS_IN_MONTH = 20;
         this.employee_wage_array = [];
+        this.employee_wage_map = new Map();
         this.returnWageArray();
     }
     printUC(uc) {
@@ -238,6 +239,15 @@ class Employee {
         });
         console.log("Total number of days worked = " + days_worked);
     }
+    storeInMap() {
+        let total_wage = 0;
+        this.employee_wage_array.forEach((wages, index) => {
+            total_wage += wages;
+            this.employee_wage_map.set("Day: " + ++index, [wages, total_wage]);
+        });
+        console.log("Employee wage map");
+        console.log(this.employee_wage_map);
+    }
 }
 {
     //  uc7 -   Create employee class
@@ -268,4 +278,7 @@ class Employee {
     //  uc9 - Task_7  Find the number of days the Employee Worked
     console.log(employee_object.printUC("uc9 - Task_6"));
     employee_object.totalDays();
+    //  uc10 - Store the Day and the Daily Wage along with the Total wage using map
+    console.log(employee_object.printUC("uc10"));
+    employee_object.storeInMap();
 }
