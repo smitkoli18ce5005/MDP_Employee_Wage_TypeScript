@@ -217,6 +217,20 @@ class Employee {
         console.log("Every Element of Full Time Wage is truly holding Full time wage = " +
             isValid);
     }
+    checkPartTimeWage() {
+        let isPartTime = false;
+        this.employee_wage_array.find((wages, index) => {
+            if (wages == 80 && !isPartTime) {
+                isPartTime = true;
+            }
+        });
+        if (isPartTime) {
+            console.log("Part Time Wage present: " + isPartTime);
+        }
+        else {
+            console.log("No Part Time Wage");
+        }
+    }
 }
 {
     //  uc7 -   Create employee class
@@ -241,4 +255,7 @@ class Employee {
     //  uc9 - Task_5  Check if Every Element of Full Time Wage is truly holding Full time wage
     console.log(employee_object.printUC("uc9 - Task_5"));
     employee_object.checkFullTimeWage();
+    //  uc9 - Task_6  Check if there is any Part Time Wage
+    console.log(employee_object.printUC("uc9 - Task_6"));
+    employee_object.checkPartTimeWage();
 }

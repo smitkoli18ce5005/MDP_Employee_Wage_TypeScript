@@ -126,6 +126,7 @@ interface EmployeeInterface {
   displayFullTimeWage(): void;
   displayFirstFullTimePay(): void;
   checkFullTimeWage(): void;
+  checkPartTimeWage(): void;
 }
 
 class Employee implements EmployeeInterface {
@@ -285,6 +286,20 @@ class Employee implements EmployeeInterface {
         isValid
     );
   }
+
+  checkPartTimeWage(): void {
+    let isPartTime: boolean = false;
+    this.employee_wage_array.find((wages, index) => {
+      if (wages == 80 && !isPartTime) {
+        isPartTime = true;
+      }
+    });
+    if (isPartTime) {
+      console.log("Part Time Wage present: " + isPartTime);
+    } else {
+      console.log("No Part Time Wage");
+    }
+  }
 }
 
 {
@@ -320,4 +335,8 @@ class Employee implements EmployeeInterface {
   //  uc9 - Task_5  Check if Every Element of Full Time Wage is truly holding Full time wage
   console.log(employee_object.printUC("uc9 - Task_5"));
   employee_object.checkFullTimeWage();
+
+  //  uc9 - Task_6  Check if there is any Part Time Wage
+  console.log(employee_object.printUC("uc9 - Task_6"));
+  employee_object.checkPartTimeWage();
 }
