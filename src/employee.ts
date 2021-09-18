@@ -119,10 +119,11 @@ interface EmployeeInterface {
   returnPartTimeWage(): number;
   calculateWage(attendace: number): number;
   calculateMonthlyWage(restricted?: number): number;
-  returnWageArray(): number[];
+  returnWageArray(): void;
   wageUsingForLoop(): number;
   wageUsingForEach(): number;
   displayDailyWage(): void;
+  displayFullTimeWage(): void;
 }
 
 class Employee implements EmployeeInterface {
@@ -131,7 +132,11 @@ class Employee implements EmployeeInterface {
   readonly WAGE_PER_HOUR = 20;
   readonly DAYS_IN_MONTH = 20;
 
-  constructor() {}
+  private employee_wage_array: number[] = [];
+
+  constructor() {
+    this.returnWageArray();
+  }
 
   printUC(uc: string): string {
     return `------------------------${uc}------------------------`;
@@ -204,41 +209,48 @@ class Employee implements EmployeeInterface {
     return employee_monthly_wage;
   }
 
-  returnWageArray(): number[] {
-    let wage_array: number[] = [];
+  returnWageArray(): void {
     let i: number;
     for (i = 0; i < this.DAYS_IN_MONTH; i++) {
-      wage_array.push(this.calculateWage(this.attendanceGenerator()));
+      this.employee_wage_array.push(
+        this.calculateWage(this.attendanceGenerator())
+      );
     }
-    return wage_array;
   }
 
   wageUsingForLoop(): number {
-    let wage_array: number[] = this.returnWageArray();
     let total_wage: number = 0;
     let i: number;
-    for (i = 0; i < wage_array.length; i++) {
-      total_wage += wage_array[i];
+    for (i = 0; i < this.employee_wage_array.length; i++) {
+      total_wage += this.employee_wage_array[i];
     }
     return total_wage;
   }
 
   wageUsingForEach(): number {
-    let wage_array: number[] = this.returnWageArray();
     let total_wage: number = 0;
-    wage_array.forEach((wages) => {
+    this.employee_wage_array.forEach((wages) => {
       total_wage += wages;
     });
     return total_wage;
   }
 
   displayDailyWage(): void {
-    let wage_array: number[] = this.returnWageArray();
     console.log("Day \t|\t Wage");
     console.log("----------------------");
-    wage_array.map((wages: number, index: number) =>
+    this.employee_wage_array.map((wages: number, index: number) =>
       console.log(index + 1 + " \t|\t " + wages)
     );
+  }
+
+  displayFullTimeWage(): void {
+    console.log("Day \t|\t Wage");
+    console.log("----------------------");
+    this.employee_wage_array.filter((wages, index) => {
+      if (wages == 160) {
+        console.log(index + 1 + " \t|\t " + wages);
+      }
+    });
   }
 }
 
@@ -263,4 +275,8 @@ class Employee implements EmployeeInterface {
   //  uc9 - Task_2  Show the Day along with Daily Wage using Array map helper function
   console.log(employee_object.printUC("uc9 - Task_2"));
   employee_object.displayDailyWage();
+
+  //  uc9 - Task_3  Show Days when Full time wage of 160 were earned using filter function
+  console.log(employee_object.printUC("uc9 - Task_3"));
+  employee_object.displayFullTimeWage();
 }

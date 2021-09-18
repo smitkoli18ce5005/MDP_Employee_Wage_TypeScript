@@ -94,6 +94,8 @@ class Employee {
         this.FULL_TIME_WAGE = 8;
         this.WAGE_PER_HOUR = 20;
         this.DAYS_IN_MONTH = 20;
+        this.employee_wage_array = [];
+        this.returnWageArray();
     }
     printUC(uc) {
         return `------------------------${uc}------------------------`;
@@ -158,35 +160,39 @@ class Employee {
         return employee_monthly_wage;
     }
     returnWageArray() {
-        let wage_array = [];
         let i;
         for (i = 0; i < this.DAYS_IN_MONTH; i++) {
-            wage_array.push(this.calculateWage(this.attendanceGenerator()));
+            this.employee_wage_array.push(this.calculateWage(this.attendanceGenerator()));
         }
-        return wage_array;
     }
     wageUsingForLoop() {
-        let wage_array = this.returnWageArray();
         let total_wage = 0;
         let i;
-        for (i = 0; i < wage_array.length; i++) {
-            total_wage += wage_array[i];
+        for (i = 0; i < this.employee_wage_array.length; i++) {
+            total_wage += this.employee_wage_array[i];
         }
         return total_wage;
     }
     wageUsingForEach() {
-        let wage_array = this.returnWageArray();
         let total_wage = 0;
-        wage_array.forEach((wages) => {
+        this.employee_wage_array.forEach((wages) => {
             total_wage += wages;
         });
         return total_wage;
     }
     displayDailyWage() {
-        let wage_array = this.returnWageArray();
         console.log("Day \t|\t Wage");
         console.log("----------------------");
-        wage_array.map((wages, index) => console.log(index + 1 + " \t|\t " + wages));
+        this.employee_wage_array.map((wages, index) => console.log(index + 1 + " \t|\t " + wages));
+    }
+    displayFullTimeWage() {
+        console.log("Day \t|\t Wage");
+        console.log("----------------------");
+        this.employee_wage_array.filter((wages, index) => {
+            if (wages == 160) {
+                console.log(index + 1 + " \t|\t " + wages);
+            }
+        });
     }
 }
 {
@@ -203,4 +209,7 @@ class Employee {
     //  uc9 - Task_2  Show the Day along with Daily Wage using Array map helper function
     console.log(employee_object.printUC("uc9 - Task_2"));
     employee_object.displayDailyWage();
+    //  uc9 - Task_3  Show Days when Full time wage of 160 were earned using filter function
+    console.log(employee_object.printUC("uc9 - Task_3"));
+    employee_object.displayFullTimeWage();
 }
