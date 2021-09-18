@@ -95,7 +95,6 @@ class Employee {
         this.WAGE_PER_HOUR = 20;
         this.DAYS_IN_MONTH = 20;
         this.employee_wage_array = [];
-        this.employee_wage_map = new Map();
         this.returnWageArray();
     }
     printUC(uc) {
@@ -240,13 +239,28 @@ class Employee {
         console.log("Total number of days worked = " + days_worked);
     }
     storeInMap() {
+        let employee_wage_map = new Map();
         let total_wage = 0;
         this.employee_wage_array.forEach((wages, index) => {
             total_wage += wages;
-            this.employee_wage_map.set("Day: " + ++index, [wages, total_wage]);
+            employee_wage_map.set("Day: " + ++index, [wages, total_wage]);
         });
         console.log("Employee wage map");
-        console.log(this.employee_wage_map);
+        console.log(employee_wage_map);
+    }
+    storeInObject() {
+        let employee_wage_object_array = [];
+        let employee_wage_object;
+        this.employee_wage_array.forEach((wages, index) => {
+            employee_wage_object = {
+                Day: ++index,
+                Hours_Worked: wages / this.WAGE_PER_HOUR,
+                Wage_Earned: wages,
+            };
+            employee_wage_object_array.push(employee_wage_object);
+        });
+        console.log("Employee wage object");
+        console.log(employee_wage_object_array);
     }
 }
 {
@@ -281,4 +295,7 @@ class Employee {
     //  uc10 - Store the Day and the Daily Wage along with the Total wage using map
     console.log(employee_object.printUC("uc10"));
     employee_object.storeInMap();
+    //  uc11 - Store the Day, Hours Worked on single day and wage earned in object
+    console.log(employee_object.printUC("uc11"));
+    employee_object.storeInObject();
 }

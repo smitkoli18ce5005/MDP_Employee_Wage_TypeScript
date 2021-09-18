@@ -19,3 +19,4 @@ UC          | Task
 9 - Task_6  | Check if there is any Part Time Wage
 9 - Task_7  | Find the number of days the Employee Worked
 10          | Store the Day and the Daily Wage along with the Total wage using map
+11          | Store the Day, Hours Worked on single day and wage earned in object
