@@ -124,6 +124,7 @@ interface EmployeeInterface {
   wageUsingForEach(): number;
   displayDailyWage(): void;
   displayFullTimeWage(): void;
+  displayFirstFullTimePay(): void;
 }
 
 class Employee implements EmployeeInterface {
@@ -246,9 +247,22 @@ class Employee implements EmployeeInterface {
   displayFullTimeWage(): void {
     console.log("Day \t|\t Wage");
     console.log("----------------------");
-    this.employee_wage_array.filter((wages, index) => {
+    this.employee_wage_array.filter((wages: number, index: number) => {
       if (wages == 160) {
         console.log(index + 1 + " \t|\t " + wages);
+      }
+    });
+  }
+
+  displayFirstFullTimePay(): void {
+    let isFirst: boolean = true;
+    this.employee_wage_array.find((wages: number, index: number) => {
+      if (wages == 160 && isFirst) {
+        console.log(
+          "The first occurance when Full Time Wage was earned is = " +
+            (index + 1)
+        );
+        isFirst = false;
       }
     });
   }
@@ -279,4 +293,8 @@ class Employee implements EmployeeInterface {
   //  uc9 - Task_3  Show Days when Full time wage of 160 were earned using filter function
   console.log(employee_object.printUC("uc9 - Task_3"));
   employee_object.displayFullTimeWage();
+
+  //  uc9 - Task_4  Find the first occurrence when Full Time Wage was earned using find function
+  console.log(employee_object.printUC("uc9 - Task_3"));
+  employee_object.displayFirstFullTimePay();
 }

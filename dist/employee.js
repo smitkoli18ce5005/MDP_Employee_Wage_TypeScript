@@ -194,6 +194,16 @@ class Employee {
             }
         });
     }
+    displayFirstFullTimePay() {
+        let isFirst = true;
+        this.employee_wage_array.find((wages, index) => {
+            if (wages == 160 && isFirst) {
+                console.log("The first occurance when Full Time Wage was earned is = " +
+                    (index + 1));
+                isFirst = false;
+            }
+        });
+    }
 }
 {
     //  uc7 -   Create employee class
@@ -212,4 +222,7 @@ class Employee {
     //  uc9 - Task_3  Show Days when Full time wage of 160 were earned using filter function
     console.log(employee_object.printUC("uc9 - Task_3"));
     employee_object.displayFullTimeWage();
+    //  uc9 - Task_4  Find the first occurrence when Full Time Wage was earned using find function
+    console.log(employee_object.printUC("uc9 - Task_3"));
+    employee_object.displayFirstFullTimePay();
 }

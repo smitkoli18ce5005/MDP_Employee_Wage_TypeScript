@@ -14,3 +14,4 @@ UC          | Task
 9 - Task_1  | Calculate total Wage using array forEach
 9 - Task_2  | Show the Day along with Daily Wage using Array map helper function
 9 - Task_3  | Show Days when Full time wage of 160 were earned using filter function
+9 - Task_4  | Find the first occurrence when Full Time Wage was earned using find function
