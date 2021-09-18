@@ -204,6 +204,19 @@ class Employee {
             }
         });
     }
+    checkFullTimeWage() {
+        let isValid = true;
+        for (let i = 0; i < this.employee_wage_array.length; i++) {
+            if (this.employee_wage_array[i] != 160 &&
+                this.employee_wage_array[i] != 80 &&
+                this.employee_wage_array[i] != 0) {
+                isValid = false;
+                break;
+            }
+        }
+        console.log("Every Element of Full Time Wage is truly holding Full time wage = " +
+            isValid);
+    }
 }
 {
     //  uc7 -   Create employee class
@@ -223,6 +236,9 @@ class Employee {
     console.log(employee_object.printUC("uc9 - Task_3"));
     employee_object.displayFullTimeWage();
     //  uc9 - Task_4  Find the first occurrence when Full Time Wage was earned using find function
-    console.log(employee_object.printUC("uc9 - Task_3"));
+    console.log(employee_object.printUC("uc9 - Task_4"));
     employee_object.displayFirstFullTimePay();
+    //  uc9 - Task_5  Check if Every Element of Full Time Wage is truly holding Full time wage
+    console.log(employee_object.printUC("uc9 - Task_5"));
+    employee_object.checkFullTimeWage();
 }
