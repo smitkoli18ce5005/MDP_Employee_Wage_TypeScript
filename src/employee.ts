@@ -393,3 +393,33 @@ class Employee implements EmployeeInterface {
   console.log(employee_object.printUC("uc11"));
   employee_object.storeInObject();
 }
+
+class EmployeePayroll extends Employee {
+  private readonly emp_name: string = "";
+  private readonly emp_id: number = 0;
+  private readonly emp_gender: string = "";
+  private readonly emp_date: string = "";
+
+  constructor(name: string, id: number, gender: string, date: string) {
+    super();
+    this.emp_name = name;
+    this.emp_id = id;
+    this.emp_gender = gender;
+    this.emp_date = date;
+  }
+
+  displayPayrollData(): void {
+    console.log("------Employee Payroll Data------");
+    console.log("Name\t\t:\t" + this.emp_name);
+    console.log("Employee-ID\t:\t" + this.emp_id);
+    console.log("Gender\t\t:\t" + this.emp_gender);
+    console.log("Date\t\t:\t" + this.emp_date);
+    console.log("Salary\t\t:\t" + this.wageUsingForEach());
+  }
+}
+{
+  //  uc12  - Ability to create Employee Payroll Data with id, name and salary
+  let payrollObject = new EmployeePayroll("Smit", 445545, "Male", "02/08/2212");
+  console.log(payrollObject.printUC("uc12"));
+  payrollObject.displayPayrollData();
+}

@@ -299,3 +299,30 @@ class Employee {
     console.log(employee_object.printUC("uc11"));
     employee_object.storeInObject();
 }
+class EmployeePayroll extends Employee {
+    constructor(name, id, gender, date) {
+        super();
+        this.emp_name = "";
+        this.emp_id = 0;
+        this.emp_gender = "";
+        this.emp_date = "";
+        this.emp_name = name;
+        this.emp_id = id;
+        this.emp_gender = gender;
+        this.emp_date = date;
+    }
+    displayPayrollData() {
+        console.log("------Employee Payroll Data------");
+        console.log("Name\t\t:\t" + this.emp_name);
+        console.log("Employee-ID\t:\t" + this.emp_id);
+        console.log("Gender\t\t:\t" + this.emp_gender);
+        console.log("Date\t\t:\t" + this.emp_date);
+        console.log("Salary\t\t:\t" + this.wageUsingForEach());
+    }
+}
+{
+    //  uc12  - Ability to create Employee Payroll Data with id, name and salary
+    let payrollObject = new EmployeePayroll("Smit", 445545, "Male", "02/08/2212");
+    console.log(payrollObject.printUC("uc12"));
+    payrollObject.displayPayrollData();
+}
